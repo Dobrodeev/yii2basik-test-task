@@ -30,6 +30,28 @@ php yii serve --port=8890
 <http://localhost:8890/index.php?r=site%2Fentry>
 или <http://localhost:8890/index.php?r=country%2Findex>.
 
+## Админка
+
+Модуль `modules/admin` на теме [AdminLTE 3](https://adminlte.io/) (пакет `hail812/yii2-adminlte3`).
+
+- Адрес: <http://localhost:8890/index.php?r=admin>
+- Вход: `admin` / `admin` (тестовый пользователь из `models/User.php`); остальным пользователям доступ закрыт
+- Панель управления: число стран и суммарное население
+- Раздел «Страны»: список с фильтрами и сортировкой, просмотр, добавление, редактирование, удаление
+- В режиме разработки в меню есть ссылки на Gii и Debug
+
+Новые разделы можно генерировать через Gii с шаблоном `adminlte`, например:
+
+```bash
+php yii gii/crud --modelClass='app\models\Country' \
+    --searchModelClass='app\modules\admin\models\CountrySearch' \
+    --controllerClass='app\modules\admin\controllers\CountryController' \
+    --viewPath='@app/modules/admin/views/country' --template=adminlte
+```
+
+Шаблон AdminLTE в `findModel()` всегда подставляет `$id`; если первичный ключ называется иначе
+(как `code` у стран), исправьте переменную в сгенерированном контроллере.
+
 ## База данных
 
 Настройки подключения — в `config/db.php`. По умолчанию:
