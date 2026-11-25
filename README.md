@@ -14,7 +14,7 @@
 
 ## Требования
 
-- PHP 7.4+
+- PHP 7.4+ с расширением GD (нужно для капчи на странице Contact: в `php.ini` раскомментируйте `extension=gd`)
 - MySQL / MariaDB
 - Composer
 
