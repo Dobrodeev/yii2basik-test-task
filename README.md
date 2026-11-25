@@ -10,6 +10,7 @@
 |---|---|---|
 | `site/say` | Действие и представление («Говорим Привет») | `controllers/SiteController.php`, `views/site/say.php` |
 | `site/entry` | Форма с валидацией на основе модели («Работа с формами») | `models/EntryForm.php`, `views/site/entry.php`, `views/site/entry-confirm.php` |
+| `country/index` | Список стран из БД через ActiveRecord с пагинацией («Работа с базами данных») | `migrations/m261125_000001_create_country_table.php`, `models/Country.php`, `controllers/CountryController.php`, `views/country/index.php` |
 
 ## Требования
 
@@ -21,11 +22,13 @@
 
 ```bash
 composer install
+php yii migrate
 php yii serve --port=8890
 ```
 
-Откройте <http://localhost:8890/index.php?r=site%2Fsay&message=Привет>
-или <http://localhost:8890/index.php?r=site%2Fentry>.
+Откройте <http://localhost:8890/index.php?r=site%2Fsay&message=Привет>,
+<http://localhost:8890/index.php?r=site%2Fentry>
+или <http://localhost:8890/index.php?r=country%2Findex>.
 
 ## База данных
 
