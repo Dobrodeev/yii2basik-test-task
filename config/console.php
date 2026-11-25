@@ -42,6 +42,14 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'generators' => [
+            'crud' => [
+                'class' => 'yii\gii\generators\crud\Generator',
+                'templates' => [
+                    'adminlte' => '@vendor/hail812/yii2-adminlte3/src/gii/generators/crud/default',
+                ],
+            ],
+        ],
     ];
 }
 
